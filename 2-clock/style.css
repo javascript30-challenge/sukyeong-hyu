@@ -40,22 +40,20 @@ body {
   background: black;
   position: absolute;
   top: 50%;
+  /* TIL:  clock-face 기준으로 위에서 부터 50% 오른쪽에서 50% 띄우는 방법*/
+  right: 50%;
+  transform-origin: right;
 }
 
 .hour-hand {
-  width: 50%;
-  transform: rotate(45deg);
-  transform-origin: right;
+  width: 30%;
 }
 
 .min-hand {
-  transform: rotate(90deg);
-  transform-origin: right;
+  width: 45%;
 }
 
 .second-hand {
   background-color: red;
   height: 3px;
-  transform: rotate(180deg);
-  transform-origin: right;
 }

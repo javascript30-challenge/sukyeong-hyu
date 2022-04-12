@@ -16,9 +16,36 @@
     </div>
 
     <script>
-      const dateDiv = document.getElementsByClassName('date');
+      // TIL: getElementByClassName -> HTMLCollections, querySelector -> returns the first Element within the document that matches the specified selector, or group of selectors. If no matches are found, null is returned.
+      const dateDiv = document.querySelector('.date');
+      const secondHand = document.querySelector('.second-hand');
+      const minuteHand = document.querySelector('.min-hand');
+      const hourHand = document.querySelector('.hour-hand');
       const date = new Date();
       console.log(date);
+      // step 1: setting initial time
+      let currentSecond = date.getSeconds();
+      let currentMinute = date.getMinutes();
+      let currentHour = date.getHours();
+      secondHand.style.transform = `rotate(${currentSecond * 6 + 90}deg)`;
+      minuteHand.style.transform = `rotate(${currentMinute * 6 + 90}deg)`;
+      hourHand.style.transform = `rotate(${
+        (currentHour - 12) * 30 + currentMinute * 0.5 + 90
+      }deg)`;
+      // step 2: rotate secondHand every second
+      // TIL: setInterval은 변수 필요없고 변수로 clearInterval()
+      setInterval(() => {
+        currentSecond += 1;
+        secondHand.style.transform = `rotate(${currentSecond * 6 + 90}deg)`;
+        if (currentSecond === 60) {
+          currentSecond = 0;
+          currentMinute += 1;
+          minuteHand.style.transform = `rotate(${currentMinute * 6 + 90}deg)`;
+          hourHand.style.transform = `rotate(${
+            (currentHour - 12) * 30 + currentMinute * 0.5 + 90
+          }deg)`;
+        }
+      }, 1000);
     </script>
   </body>
 </html>
