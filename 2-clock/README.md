@@ -21,4 +21,7 @@
 ### 새로 알게 된 내용 ✨
 
 1. 시침과 분침의 크기를 줄이면, 오른쪽이 줄기 때문에 중심축을 벗어납니다. 이를 방지하기 위해는 position: absolute에 top: 50%, right: 50% 를 주어야 합니다.
-2. getElementByClassName은 *HTMLCollection 이라는 배열*을 반환하고, querySelector은 parameter랑 매치되는 가장 첫번쨰 *element*를 반환합니다.
+2. getElementByClassName은 **HTMLCollection 이라는 배열**을 반환하고, querySelector은 parameter랑 매치되는 가장 첫번쨰 **element**를 반환합니다.
+3. setInterval 함수는 바로 사용하면 되고, clearInterval 을 사용한다면 setInterval 을 변수에 저장하면 됩니다.
+4. JS에서 css를 제어할 때는 아래와 같은 방식으로 사용할 수 있고, 값은 string으로 작성합니다.
+   `document.querySelector('.hello').style.fontSize = '50px'`
