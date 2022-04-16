@@ -87,17 +87,42 @@
 
       // Array.prototype.sort()
       // 3. Sort the inventors by birthdate, oldest to youngest
+      // TIL: 이게 왜 오름차순을 만드는 방법이지?
+      const sortedInventorsByBirthDate = inventors.sort(
+        (a, b) => a.year - b.year
+      );
+      console.log(sortedInventorsByBirthDate);
 
       // Array.prototype.reduce()
       // 4. How many years did all the inventors live all together?
+      // TIL: what is reducer?
+      const countEveryInventorsYear = inventors.map(
+        (items) => items.passed - items.year
+      );
+      const result = countEveryInventorsYear.reduce(
+        (accumulator, currentValue) => accumulator + currentValue
+      );
+      console.log(result);
 
       // 5. Sort the inventors by years lived
+      const sortedInventorsByLivedYear = inventors.sort(
+        (a, b) => a.passed - a.year - (b.passed - b.year)
+      );
+      console.log(sortedInventorsByLivedYear);
 
       // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
       // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
 
       // 7. sort Exercise
       // Sort the people alphabetically by last name
+      // TIL: localeCompare은 문자열을 순서대로 정렬해줄 때 사용할 수 있다
+      const sortedInventorsByLastName = people.sort(function (a, b) {
+        const lastNameA = a.split(',')[1];
+        const lastNameB = b.split(',')[1];
+        return lastNameA.localeCompare(lastNameB);
+      });
+
+      console.log(sortedInventorsByLastName);
 
       // 8. Reduce Exercise
       // Sum up the instances of each of these
